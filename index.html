@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor Výmluv do Práce</title>
+    <style>
+        /* Základní nastavení stránky */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Hlavní kontejner */
+        .container {
+            background-color: #000000;
+            padding: 40px;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(41, 121, 255, 0.4); 
+            border: 1px solid #1a1a1a;
+        }
+
+        h1 {
+            color: #2979ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(41, 121, 255, 0.6);
+            font-size: 1.8rem;
+        }
+
+        p.subtitle {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 40px;
+            font-family: monospace;
+        }
+
+        /* Oblast pro výsledek */
+        .result-box {
+            background-color: #050505;
+            border-left: 3px solid #2979ff;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #eee;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            font-family: monospace;
+            line-height: 1.5;
+        }
+
+        /* Tlačítko */
+        button {
+            background-color: transparent;
+            color: #2979ff;
+            border: 2px solid #2979ff;
+            padding: 15px 40px;
+            font-size: 1rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(41, 121, 255, 0.1);
+        }
+
+        button:hover {
+            background-color: #2979ff;
+            color: #000000;
+            box-shadow: 0 0 30px rgba(41, 121, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>GENERÁTOR VÝMLUV DO PRÁCE</h1>
+        <p class="subtitle">Volá šéf? Rychle klikni a najdi svou výmluvu!</p>
+
+        <div class="result-box" id="vysledek">
+            Připraveno ke generování...
+        </div>
+
+        <button onclick="generujVymluvu()">Generovat výmluvu</button>
+    </div>
+
+    <script>
+        const vymluvy = [
+            "Není mi dobře, asi jsem včera snědl něco špatného.",
+            "Praskla nám doma voda, musím čekat na havarijní službu.",
+            "Nenastartoval jsem auto, baterka je úplně mrtvá.",
+            "Mám šílenou migrénu, musím ležet ve tmě.",
+            "Pes mi sežral klíče od bytu, nemůžu se zamknout.",
+            "Soused nad námi mě vytopil, řeším to s pojišťovnou.",
+            "Mám podezření na chřipku, raději nebudu nikoho v kanclu nakazit.",
+            "Zasekl jsem se ve výtahu, čekám na technika.",
+            "Vybouchly mi pojistky a nejde nahodit elektřina, čekám na elektrikáře.",
+            "Mám střevní potíže, dneska bych do práce nedojel.",
+            "Dítě ráno onemocnělo, musím s ním zůstat doma.",
+            "Totální kolaps dopravy, stojím v koloně a už hodinu se to nehýbe.",
+            "Zablokoval se mi zámek u dveří, nemůžu se dostat ven z bytu.",
+            "Musím akutně k zubaři, vypadla mi plomba a šíleně to bolí.",
+            "Upřímně? Budík nezvonil a teprve teď jsem se probudil."
+        ];
+
+        function generujVymluvu() {
+            const box = document.getElementById("vysledek");
+            const nahodneCislo = Math.floor(Math.random() * vymluvy.length);
+            
+            box.innerText = vymluvy[nahodneCislo];
+            
+            // Efekt probliknutí
+            box.style.opacity = 0.2;
+            setTimeout(() => {
+                box.style.opacity = 1;
+            }, 100);
+        }
+    </script>
+</body>
+</html>
